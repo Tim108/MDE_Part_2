@@ -1,0 +1,9 @@
+«IMPORT mdeProject»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR Root»
+'hoi' 
+
+«ENDDEFINE»
+
