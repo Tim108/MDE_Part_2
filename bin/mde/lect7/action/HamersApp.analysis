@@ -1,0 +1,36 @@
+
+		Models:
+		
+	-> RingtoneManager
+
+	-> PackageManager
+
+	-> Event
+
+	-> User
+
+	-> News
+
+	-> Drawable
+
+	-> Sticker
+
+	-> PreferenceManager
+
+	-> Calendar
+
+	-> PendingIntent
+
+	-> Beer
+
+	-> Meeting
+
+	-> Review
+
+	-> Quote
+
+	-> Animation
+
+	-> Resources
+
+	

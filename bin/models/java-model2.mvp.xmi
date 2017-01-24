@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdeProject:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdeProject="http://www.example.org/mdeProject" xsi:schemaLocation="mdeProject metamodel.ecore" name="HamersApp">
+<mdeProject:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdeProject="http://www.example.org/mdeProject" xsi:schemaLocation="http://www.example.org/mdeProject ../metamodels/ModelViewPresenter.ecore" name="HamersApp">
   <subpackage name="android">
     <subpackage name="text">
       <subpackage name="format">

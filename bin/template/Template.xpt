@@ -1,9 +1,72 @@
 «IMPORT mdeProject»
 
-«EXTENSION template::GeneratorExtensions»
-
 «DEFINE main FOR Root»
-'hoi' 
-
+	«FILE ("/mde/lect7/action/" + name.replaceAll(':', '_').replaceAll(' ', '_') + ".analysis.html")»
+		<h1>Analysis of «name»</h1>
+		
+		<h2>All Classes</h2>
+		«EXPAND listAll FOR this»
+		
+		<h2>Analysis per Presenter</h2>
+		«EXPAND analysePresenters FOR this»
+		
+	«ENDFILE»
 «ENDDEFINE»
 
+//#########################################################################################
+//h2 - analysis of presenters
+//#########################################################################################
+
+«DEFINE analysePresenters FOR Root»
+	<h3>Models and Views connected to each Presenter</h3>
+	<ul>
+	«EXPAND analyseOnePresenter FOREACH this.eAllContents.typeSelect(Presenter)»
+	</ul>
+«ENDDEFINE»
+
+«DEFINE analyseOnePresenter FOR Presenter»
+	<li>
+	«name» «this.connectedClass.exists(e|e.metaType == View) ? "ja" : "nee"»
+		<ul><li>Models</li>
+		<ul>«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)»</ul></ul>
+		<ul><li>Views</li>
+		<ul>«EXPAND listClass FOREACH this.connectedClass.typeSelect(View)»</ul></ul>
+	</li>
+«ENDDEFINE»
+
+//#########################################################################################
+//h1 - list of all classes
+//#########################################################################################
+
+«DEFINE listAll FOR Root»
+		<table style="100%">
+			<tr>
+				<th>Models</th>
+				<th>Views</th>
+				<th>Presenters</th>
+				<th>Unspecified Classes</th>
+			</tr>
+			<tr>
+				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::Model)»</ul></td>
+				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::View)»</ul></td>
+				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::Presenter)»</ul></td>
+				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::UnspecifiedClass)»</ul></td>
+			</tr>
+		</table>
+«ENDDEFINE»
+
+«DEFINE listClass FOR Model»
+	<li>«name»</li>
+«ENDDEFINE»
+
+«DEFINE listClass FOR View»
+	<li>«name»</li>
+«ENDDEFINE»
+
+«DEFINE listClass FOR Presenter»
+	<li>«name»</li>
+«ENDDEFINE»
+
+«DEFINE listClass FOR UnspecifiedClass»
+	<li>«name»</li>
+«ENDDEFINE»
