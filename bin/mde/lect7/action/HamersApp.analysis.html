@@ -1,258 +1,371 @@
 
-		<h1>Analysis of HamersApp</h1>
-		
-		<h2>All Classes</h2>
-		
-		<table style="100%">
-			<tr>
-				<th>Models</th>
-				<th>Views</th>
-				<th>Presenters</th>
-				<th>Unspecified Classes</th>
-			</tr>
-			<tr>
-				<td valign="top"><ul>
-	<li>Meeting</li>
+	<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+		  <title>Analysis of HamersApp</title>
+		  
+	    <!-- Bootstrap css-->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	    <!-- Bootstrap default theme --> 
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	    <!-- Bootstrap table of contents --> 
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
+	  </head>
+	  <body>
+	    <div class="container">
+			  <div class="row">
+			    <!-- sidebar, which will move to the top on a small screen -->
+			    <div class="col-sm-2">
+			      <br>
+			      <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+			    </div>
+			    <div class="col-sm-10">
+			       <!-- ######### main content area #########-->
+			      <h1>Analysis of HamersApp</h1>
+			      <p>
+			       This page represents the analysis of the android application "HamersApp". A table of contens is shown on the left hand side 
+			       with links to the section with differnt analysed elements of the application. This document contains several colors that 
+			       indicate warnings or errors found in the code. <span class="label label-danger">Red</span> indicates errors that were found
+			       with the structure of the android application. <span class="label label-warning">Orange</span> indicates warnings that were
+			       encountered in the application. Warnings do not always mean that something is definitialy wrong, but might be wrong with the 
+			       code. <span class="label label-success">Green</span> indicates that the analysed element was deemed correct. 
+			      </p>
+			    
+			      <h2>All Classes</h2>
+					  
+  <p>
+    The list below shows the the list of different classified classes. Classes can either be classified as models, views, presenters or unspecified classes
+    It is recommennded to scan the unspecified classes list to verify if the classification rules are configured correctly. This list should not contain classes
+    that can be identified as a class of one of the other 3 classifications.
+  </p>
 
-	<li>Beer</li>
+	<div class="row">
+	  <div class = col-md-3>
+	    <div class="panel panel-success">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Models</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">
+	<li class="list-group-item">Quote</li>
 
-	<li>RingtoneManager</li>
+	<li class="list-group-item">Meeting</li>
 
-	<li>Drawable</li>
+	<li class="list-group-item">PackageManager</li>
 
-	<li>User</li>
+	<li class="list-group-item">Animation</li>
 
-	<li>Sticker</li>
+	<li class="list-group-item">PendingIntent</li>
 
-	<li>Calendar</li>
+	<li class="list-group-item">RingtoneManager</li>
 
-	<li>Quote</li>
+	<li class="list-group-item">Event</li>
 
-	<li>Event</li>
+	<li class="list-group-item">Review</li>
 
-	<li>News</li>
+	<li class="list-group-item">Calendar</li>
 
-	<li>PendingIntent</li>
+	<li class="list-group-item">User</li>
 
-	<li>PackageManager</li>
+	<li class="list-group-item">News</li>
 
-	<li>Review</li>
+	<li class="list-group-item">Drawable</li>
 
-	<li>Resources</li>
+	<li class="list-group-item">Sticker</li>
 
-	<li>Animation</li>
+	<li class="list-group-item">Beer</li>
 
-	<li>PreferenceManager</li>
-</ul></td>
-				<td valign="top"><ul>
-	<li>NewBeerActivity</li>
+	<li class="list-group-item">Resources</li>
 
-	<li>AboutFragment</li>
+	<li class="list-group-item">PreferenceManager</li>
+</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class = col-md-3>
+	    <div class="panel panel-success">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">View</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">
+	<li class="list-group-item">Activity</li>
 
-	<li>SettingsFragment</li>
+	<li class="list-group-item">DatePickerFragment</li>
 
-	<li>UserFragment</li>
+	<li class="list-group-item">NewBeerActivity</li>
 
-	<li>MeetingFragment</li>
+	<li class="list-group-item">SingleEventActivity</li>
 
-	<li>SingleEventActivity</li>
+	<li class="list-group-item">UserFragmentPagerAdapter</li>
 
-	<li>NewsFragment</li>
+	<li class="list-group-item">NewMeetingActivity</li>
 
-	<li>SingleMeetingActivity</li>
+	<li class="list-group-item">SingleImageActivity</li>
 
-	<li>BeerFragment</li>
+	<li class="list-group-item">NewEventActivity</li>
 
-	<li>NewEventActivity</li>
+	<li class="list-group-item">EventFragment</li>
 
-	<li>DatePickerFragment</li>
+	<li class="list-group-item">NewQuoteFragment</li>
 
-	<li>NewQuoteFragment</li>
+	<li class="list-group-item">HamersFragment</li>
 
-	<li>NewNewsActivity</li>
+	<li class="list-group-item">SingleBeerActivity</li>
 
-	<li>SingleImageActivity</li>
+	<li class="list-group-item">MeetingAdapter</li>
 
-	<li>HamersActivity</li>
+	<li class="list-group-item">UserFragment</li>
 
-	<li>UserListFragment</li>
+	<li class="list-group-item">SingleMeetingActivity</li>
 
-	<li>SingleBeerActivity</li>
+	<li class="list-group-item">EventListFragment</li>
 
-	<li>EventListFragment</li>
+	<li class="list-group-item">BeerFragment</li>
 
-	<li>NewReviewActivity</li>
+	<li class="list-group-item">SettingsFragment</li>
 
-	<li>QuoteFragment</li>
+	<li class="list-group-item">NewsFragment</li>
 
-	<li>NewMeetingActivity</li>
+	<li class="list-group-item">TimePickerFragment</li>
 
-	<li>EventFragmentPagerAdapter</li>
+	<li class="list-group-item">MainActivity</li>
 
-	<li>SingleUserActivity</li>
+	<li class="list-group-item">NewReviewActivity</li>
 
-	<li>MeetingAdapter</li>
+	<li class="list-group-item">QuoteFragment</li>
 
-	<li>TimePickerFragment</li>
+	<li class="list-group-item">HamersActivity</li>
 
-	<li>MainActivity</li>
+	<li class="list-group-item">EventFragmentPagerAdapter</li>
 
-	<li>NewItemActivity</li>
+	<li class="list-group-item">StickerFragment</li>
 
-	<li>EventFragment</li>
+	<li class="list-group-item">NewItemActivity</li>
 
-	<li>UserFragmentPagerAdapter</li>
+	<li class="list-group-item">AboutFragment</li>
 
-	<li>Activity</li>
+	<li class="list-group-item">SingleUserActivity</li>
 
-	<li>HamersFragment</li>
+	<li class="list-group-item">MeetingFragment</li>
 
-	<li>StickerFragment</li>
-</ul></td>
-				<td valign="top"><ul>
-	<li>NewsAdapter</li>
+	<li class="list-group-item">UserListFragment</li>
 
-	<li>UserListAdapter</li>
+	<li class="list-group-item">NewNewsActivity</li>
+</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class = col-md-3>
+	    <div class="panel panel-success">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Presenter</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">
+	<li class="list-group-item">UserListAdapter</li>
 
-	<li>EventListAdapter</li>
+	<li class="list-group-item">BeerAdapter</li>
 
-	<li>BeerAdapter</li>
-</ul></td>
-				<td valign="top"><ul>
-	<li>Canvas</li>
+	<li class="list-group-item">EventListAdapter</li>
 
-	<li>DatePickerDialog</li>
+	<li class="list-group-item">NewsAdapter</li>
+</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class = col-md-3>
+	    <div class="panel panel-warning">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Unspecified classes</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">
+	<li class="list-group-item">Notification</li>
 
-	<li>JSONObject</li>
+	<li class="list-group-item">MessageDigestSpi</li>
 
-	<li>BitmapFactory</li>
+	<li class="list-group-item">NoSuchAlgorithmException</li>
 
-	<li>TypedArray</li>
+	<li class="list-group-item">RegistrationIntentService</li>
 
-	<li>Uri</li>
+	<li class="list-group-item">UnsupportedEncodingException</li>
 
-	<li>Bitmap</li>
+	<li class="list-group-item">IntentService</li>
 
-	<li>R</li>
+	<li class="list-group-item">R</li>
 
-	<li>AlertDialog</li>
+	<li class="list-group-item">AnimationUtils</li>
 
-	<li>PackageInfo</li>
+	<li class="list-group-item">JSONArray</li>
 
-	<li>Manifest</li>
+	<li class="list-group-item">Canvas</li>
 
-	<li>DividerItemDecoration</li>
+	<li class="list-group-item">JSONObject</li>
 
-	<li>Dialog</li>
+	<li class="list-group-item">MyInstanceIDListenerService</li>
 
-	<li>Notification</li>
+	<li class="list-group-item">JSONException</li>
 
-	<li>SimpleDateFormat</li>
+	<li class="list-group-item">Uri</li>
 
-	<li>IntentService</li>
+	<li class="list-group-item">NotificationManager</li>
 
-	<li>ArrayList</li>
+	<li class="list-group-item">Bitmap</li>
 
-	<li>TimePickerDialog</li>
+	<li class="list-group-item">HashMap</li>
 
-	<li>BuildConfig</li>
+	<li class="list-group-item">DatePickerDialog</li>
 
-	<li>Service</li>
+	<li class="list-group-item">SimpleDateFormat</li>
 
-	<li>Collections</li>
+	<li class="list-group-item">MessageDigest</li>
 
-	<li>RegistrationIntentService</li>
+	<li class="list-group-item">Locale</li>
 
-	<li>JSONArray</li>
+	<li class="list-group-item">ParseException</li>
 
-	<li>NotificationManager</li>
+	<li class="list-group-item">GeneralSecurityException</li>
 
-	<li>UnsupportedEncodingException</li>
+	<li class="list-group-item">ArrayList</li>
 
-	<li>LinkedList</li>
+	<li class="list-group-item">LinkedList</li>
 
-	<li>AnimationUtils</li>
+	<li class="list-group-item">TypedArray</li>
 
-	<li>JSONException</li>
+	<li class="list-group-item">IOException</li>
 
-	<li>Date</li>
+	<li class="list-group-item">Format</li>
 
-	<li>ParseException</li>
+	<li class="list-group-item">AlertDialog</li>
 
-	<li>MessageDigestSpi</li>
+	<li class="list-group-item">DateFormat</li>
 
-	<li>IOException</li>
+	<li class="list-group-item">PackageInfo</li>
 
-	<li>MessageDigest</li>
+	<li class="list-group-item">Dialog</li>
 
-	<li>InputMethodManager</li>
+	<li class="list-group-item">DateFormat</li>
 
-	<li>HashMap</li>
+	<li class="list-group-item">BuildConfig</li>
 
-	<li>File</li>
+	<li class="list-group-item">Collections</li>
 
-	<li>Format</li>
+	<li class="list-group-item">DividerItemDecoration</li>
 
-	<li>Color</li>
+	<li class="list-group-item">Service</li>
 
-	<li>GeneralSecurityException</li>
+	<li class="list-group-item">Date</li>
 
-	<li>DateFormat</li>
+	<li class="list-group-item">File</li>
 
-	<li>NoSuchAlgorithmException</li>
+	<li class="list-group-item">Manifest</li>
 
-	<li>DateFormat</li>
+	<li class="list-group-item">CalendarContract</li>
 
-	<li>CalendarContract</li>
+	<li class="list-group-item">TimePickerDialog</li>
 
-	<li>MyInstanceIDListenerService</li>
+	<li class="list-group-item">Color</li>
 
-	<li>Locale</li>
-</ul></td>
-			</tr>
-		</table>
+	<li class="list-group-item">InputMethodManager</li>
 
-		
-		<h2>Analysis per Presenter</h2>
-		
-	<h3>Models and Views connected to each Presenter</h3>
+	<li class="list-group-item">BitmapFactory</li>
+</ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+							
+					  <h2>Analysis per Presenter</h2>
+					  
+	<p>
+	The table below shows for each presenter to which models and views this presenter is connected. In a perfect scenario, a presenter is 
+	connected to a single view and model. It is also allowed for a presenter to connect to multiple views, this to reduce the amount of code
+	that is used inside a single view. It is recommended for a presenter to connect to a single model, but connecting to multiple models is
+	allowed. 
+	<p>
+	
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Presenter</th>
+        <th>Models</th>
+        <th>Views</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+  <tr>
+	 <td>	UserListAdapter </td>
+	 <td> 
+		 <span class="label label-danger">No connected models</span>
+		  
+	 </td> 
+	 <td> 
+     <span class="label label-danger">No connected views</span>
+      
+   </td> 
+	</tr>
+
+  <tr>
+	 <td>	BeerAdapter </td>
+	 <td> 
+		 <span class="label label-danger">No connected models</span>
+		  
+	 </td> 
+	 <td> 
+     
+     
+	<li class="list-group-item">SingleImageActivity</li>
+ 
+   </td> 
+	</tr>
+
+  <tr>
+	 <td>	EventListAdapter </td>
+	 <td> 
+		 <span class="label label-danger">No connected models</span>
+		  
+	 </td> 
+	 <td> 
+     <span class="label label-danger">No connected views</span>
+      
+   </td> 
+	</tr>
+
+  <tr>
+	 <td>	NewsAdapter </td>
+	 <td> 
+		 <span class="label label-danger">No connected models</span>
+		  
+	 </td> 
+	 <td> 
+     <span class="label label-danger">No connected views</span>
+      
+   </td> 
+	</tr>
+
+    </tbody>
+  </table>
 	<ul>
 	
-	<li>
-	NewsAdapter nee
-		<ul><li>Models</li>
-		<ul></ul></ul>
-		<ul><li>Views</li>
-		<ul></ul></ul>
-	</li>
-
-	<li>
-	UserListAdapter nee
-		<ul><li>Models</li>
-		<ul></ul></ul>
-		<ul><li>Views</li>
-		<ul></ul></ul>
-	</li>
-
-	<li>
-	EventListAdapter nee
-		<ul><li>Models</li>
-		<ul></ul></ul>
-		<ul><li>Views</li>
-		<ul></ul></ul>
-	</li>
-
-	<li>
-	BeerAdapter ja
-		<ul><li>Models</li>
-		<ul></ul></ul>
-		<ul><li>Views</li>
-		<ul>
-	<li>SingleImageActivity</li>
-</ul></ul>
-	</li>
-
 	</ul>
 
-		
+			    </div>
+			  </div>
+		  </div>
+	    
+		  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<!-- Bootstrap js -->
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    	<!-- teble of contents script --> 
+    	<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+    </body>
+	</html>
 	

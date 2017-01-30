@@ -2,14 +2,59 @@
 
 «DEFINE main FOR Root»
 	«FILE ("/mde/lect7/action/" + name.replaceAll(':', '_').replaceAll(' ', '_') + ".analysis.html")»
-		<h1>Analysis of «name»</h1>
-		
-		<h2>All Classes</h2>
-		«EXPAND listAll FOR this»
-		
-		<h2>Analysis per Presenter</h2>
-		«EXPAND analysePresenters FOR this»
-		
+	<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+		  <title>Analysis of «name»</title>
+		  
+	    <!-- Bootstrap css-->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	    <!-- Bootstrap default theme --> 
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	    <!-- Bootstrap table of contents --> 
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
+	  </head>
+	  <body>
+	    <div class="container">
+			  <div class="row">
+			    <!-- sidebar, which will move to the top on a small screen -->
+			    <div class="col-sm-2">
+			      <br>
+			      <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+			    </div>
+			    <div class="col-sm-10">
+			       <!-- ######### main content area #########-->
+			      <h1>Analysis of «name»</h1>
+			      <p>
+			       This page represents the analysis of the android application "«name»". A table of contens is shown on the left hand side 
+			       with links to the section with differnt analysed elements of the application. This document contains several colors that 
+			       indicate warnings or errors found in the code. <span class="label label-danger">Red</span> indicates errors that were found
+			       with the structure of the android application. <span class="label label-warning">Orange</span> indicates warnings that were
+			       encountered in the application. Warnings do not always mean that something is definitialy wrong, but might be wrong with the 
+			       code. <span class="label label-success">Green</span> indicates that the analysed element was deemed correct. 
+			      </p>
+			    
+			      <h2>All Classes</h2>
+					  «EXPAND listAll FOR this»
+							
+					  <h2>Analysis per Presenter</h2>
+					  «EXPAND analysePresenters FOR this»
+			    </div>
+			  </div>
+		  </div>
+	    
+		  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<!-- Bootstrap js -->
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    	<!-- teble of contents script --> 
+    	<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+    </body>
+	</html>
 	«ENDFILE»
 «ENDDEFINE»
 
@@ -18,20 +63,42 @@
 //#########################################################################################
 
 «DEFINE analysePresenters FOR Root»
-	<h3>Models and Views connected to each Presenter</h3>
+	<p>
+	The table below shows for each presenter to which models and views this presenter is connected. In a perfect scenario, a presenter is 
+	connected to a single view and model. It is also allowed for a presenter to connect to multiple views, this to reduce the amount of code
+	that is used inside a single view. It is recommended for a presenter to connect to a single model, but connecting to multiple models is
+	allowed. 
+	<p>
+	
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Presenter</th>
+        <th>Models</th>
+        <th>Views</th>
+      </tr>
+    </thead>
+    <tbody>
+      «EXPAND analyseOnePresenter FOREACH this.eAllContents.typeSelect(Presenter)»
+    </tbody>
+  </table>
 	<ul>
-	«EXPAND analyseOnePresenter FOREACH this.eAllContents.typeSelect(Presenter)»
+	
 	</ul>
 «ENDDEFINE»
 
 «DEFINE analyseOnePresenter FOR Presenter»
-	<li>
-	«name» «this.connectedClass.exists(e|e.metaType == View) ? "ja" : "nee"»
-		<ul><li>Models</li>
-		<ul>«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)»</ul></ul>
-		<ul><li>Views</li>
-		<ul>«EXPAND listClass FOREACH this.connectedClass.typeSelect(View)»</ul></ul>
-	</li>
+  <tr>
+	 <td>	«name» </td>
+	 <td> 
+		 «this.connectedClass.exists(e|e.metaType == Model) ? "" : "<span class=\"label label-danger\">No connected models</span>"»
+		 «EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» 
+	 </td> 
+	 <td> 
+     «this.connectedClass.exists(e|e.metaType == View) ? "" : "<span class=\"label label-danger\">No connected views</span>"»
+     «EXPAND listClass FOREACH this.connectedClass.typeSelect(View)» 
+   </td> 
+	</tr>
 «ENDDEFINE»
 
 //#########################################################################################
@@ -39,34 +106,59 @@
 //#########################################################################################
 
 «DEFINE listAll FOR Root»
-		<table style="100%">
-			<tr>
-				<th>Models</th>
-				<th>Views</th>
-				<th>Presenters</th>
-				<th>Unspecified Classes</th>
-			</tr>
-			<tr>
-				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::Model)»</ul></td>
-				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::View)»</ul></td>
-				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::Presenter)»</ul></td>
-				<td valign="top"><ul>«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::UnspecifiedClass)»</ul></td>
-			</tr>
-		</table>
+  <p>
+    The list below shows the the list of different classified classes. Classes can either be classified as models, views, presenters or unspecified classes
+    It is recommennded to scan the unspecified classes list to verify if the classification rules are configured correctly. This list should not contain classes
+    that can be identified as a class of one of the other 3 classifications.
+  </p>
+
+	<div class="row">
+	  <div class = col-md-3>
+	    <div class="panel panel-success">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Models</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::Model)»</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class = col-md-3>
+	    <div class="panel panel-success">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">View</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::View)»</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class = col-md-3>
+	    <div class="panel panel-success">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Presenter</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::Presenter)»</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class = col-md-3>
+	    <div class="panel panel-warning">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Unspecified classes</h3>
+	      </div>
+	      <div class="panel-body">
+	        <ul class="list-group">«EXPAND listClass FOREACH this.eAllContents.typeSelect(mdeProject::UnspecifiedClass)»</ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 «ENDDEFINE»
 
-«DEFINE listClass FOR Model»
-	<li>«name»</li>
+«DEFINE listClass FOR Class»
+	<li class="list-group-item">«name»</li>
 «ENDDEFINE»
 
-«DEFINE listClass FOR View»
-	<li>«name»</li>
-«ENDDEFINE»
 
-«DEFINE listClass FOR Presenter»
-	<li>«name»</li>
-«ENDDEFINE»
 
-«DEFINE listClass FOR UnspecifiedClass»
-	<li>«name»</li>
-«ENDDEFINE»
