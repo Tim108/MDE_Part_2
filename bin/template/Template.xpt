@@ -43,6 +43,9 @@
 							
 					  <h2>Analysis per Presenter</h2>
 					  «EXPAND analysePresenters FOR this»
+					  
+					  <h2>Analysis per Model</h2>
+					  «EXPAND analyseModels FOR this»
 			    </div>
 			  </div>
 		  </div>
@@ -58,48 +61,6 @@
 	«ENDFILE»
 «ENDDEFINE»
 
-//#########################################################################################
-//h2 - analysis of presenters
-//#########################################################################################
-
-«DEFINE analysePresenters FOR Root»
-	<p>
-	The table below shows for each presenter to which models and views this presenter is connected. In a perfect scenario, a presenter is 
-	connected to a single view and model. It is also allowed for a presenter to connect to multiple views, this to reduce the amount of code
-	that is used inside a single view. It is recommended for a presenter to connect to a single model, but connecting to multiple models is
-	allowed. 
-	<p>
-	
-	<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Presenter</th>
-        <th>Models</th>
-        <th>Views</th>
-      </tr>
-    </thead>
-    <tbody>
-      «EXPAND analyseOnePresenter FOREACH this.eAllContents.typeSelect(Presenter)»
-    </tbody>
-  </table>
-	<ul>
-	
-	</ul>
-«ENDDEFINE»
-
-«DEFINE analyseOnePresenter FOR Presenter»
-  <tr>
-	 <td>	«name» </td>
-	 <td> 
-		 «this.connectedClass.exists(e|e.metaType == Model) ? "" : "<span class=\"label label-danger\">No connected models</span>"»
-		 «EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» 
-	 </td> 
-	 <td> 
-     «this.connectedClass.exists(e|e.metaType == View) ? "" : "<span class=\"label label-danger\">No connected views</span>"»
-     «EXPAND listClass FOREACH this.connectedClass.typeSelect(View)» 
-   </td> 
-	</tr>
-«ENDDEFINE»
 
 //#########################################################################################
 //h1 - list of all classes
@@ -155,6 +116,112 @@
 	  </div>
 	</div>
 «ENDDEFINE»
+
+//#########################################################################################
+//h2 - analysis of presenters
+//#########################################################################################
+
+«DEFINE analysePresenters FOR Root»
+  <p>
+  The table below shows for each presenter to which models and views this presenter is connected. In a perfect scenario, a presenter is 
+  connected to a single view and model. It is also allowed for a presenter to connect to multiple views, this to reduce the amount of code
+  that is used inside a single view. It is recommended for a presenter to connect to a single model, but connecting to multiple models is
+  allowed. 
+  <p>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Presenter</th>
+        <th>Models</th>
+        <th>Views</th>
+      </tr>
+    </thead>
+    <tbody>
+      «EXPAND analyseOnePresenter FOREACH this.eAllContents.typeSelect(Presenter)»
+    </tbody>
+  </table>
+  <ul>
+  
+  </ul>
+«ENDDEFINE»
+
+«DEFINE analyseOnePresenter FOR Presenter»
+  <tr>
+   <td> «name» </td>
+   <td> 
+     «this.connectedClass.exists(e|e.metaType == Model) ? "" : "<span class=\"label label-danger\">No connected models</span>"»
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» </ul>
+   </td> 
+   <td> 
+     «this.connectedClass.exists(e|e.metaType == View) ? "" : "<span class=\"label label-danger\">No connected views</span>"»
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(View)» </ul>
+   </td> 
+  </tr>
+«ENDDEFINE»
+
+//#########################################################################################
+//h2 - analysis of models
+//#########################################################################################
+
+«DEFINE analyseModels FOR Root»
+  <p>
+  It is expected that if a model is not connected to a presenter, that the model is connected to one or more views. 
+  This is called the Model-View pattern and is the simplified pattern that is allowed in Android.  So the model is 
+  either connected to one presenter, or the model is connected to views directly. If a model is connected to a presenter,
+  it is not allowed for the model to also be connected to views. Models should never be connected to other models. 
+  <p>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Presenter</th>
+        <th>Views</th>
+        <th>Models</th>
+        <th>Conclusion</th>
+      </tr>
+    </thead>
+    <tbody>
+      «EXPAND analyseOneModel FOREACH this.eAllContents.typeSelect(Model)»
+    </tbody>
+  </table>
+  <ul>
+  
+  </ul>
+«ENDDEFINE»
+
+«DEFINE analyseOneModel FOR Model»
+  «LET this.connectedClass.exists(e|e.metaType == Presenter) AS hasPresenter»
+  «LET this.connectedClass.exists(e|e.metaType == View) AS hasView»
+  «LET this.connectedClass.exists(e|e.metaType == Model) AS hasModel»
+  <tr>
+   <td> «name» </td>
+   <td> 
+     «hasPresenter ? "" : "<span class=\"label label-warning\">No presenters found for model</span>" »
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)»</ul> 
+   </td> 
+   <td> 
+     «hasView ? "" : "<span class=\"label label-warning\">Model not connected to any views</span>"»
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(View)» </ul>
+   </td> 
+   <td> 
+     «hasModel ? "" : "<span class=\"label label-success\">Model not connected to other models</span>"»
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» </ul>
+   </td> 
+   <td> 
+     «hasPresenter && hasView ? "<span class=\"label label-danger\">Model is connected to both views and presenters</span>" : ""»
+     «hasPresenter && !hasView ? "<span class=\"label label-success\">Model is connected to a presenter and not to any views</span>" : ""»
+     «!hasPresenter && hasView ? "<span class=\"label label-success\">Model is only connected to views and not to a presenter</span>" : ""»
+     «!hasPresenter && !hasView ? "<span class=\"label label-danger\">Model not connected to any views or presenters</span>" : ""»
+     «hasModel ? "<span class=\"label label-danger\">Model connected to other models</span>" : "<span class=\"label label-success\">Model not connected to other models</span>"»
+   </td> 
+  </tr>
+  «ENDLET»
+  «ENDLET»
+  «ENDLET»
+«ENDDEFINE»
+
 
 «DEFINE listClass FOR Class»
 	<li class="list-group-item">«name»</li>
