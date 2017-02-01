@@ -296,10 +296,16 @@
         <th>Presenter</th>
         <th>Models</th>
         <th>Views</th>
+        <th>Presenters</th>
+        <th>Detected pattern</th>
       </tr>
     </thead>
     <tbody>
       
+  
+  
+  
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">UserListAdapter</li></ul> </td>
    <td> 
@@ -310,8 +316,27 @@
      <span class="label label-danger">No connected views</span>
      <ul class="list-group"> </ul>
    </td> 
+   <td> 
+     <span class="label label-success">No connected presenters</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     
+     <span class="label label-danger">Presenter is missing link with view</span>
+     <span class="label label-danger">Presenter is missing link with model</span>
+     
+     
+   </td> 
   </tr>
+  
+  
+  
+  
 
+  
+  
+  
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewsAdapter</li></ul> </td>
    <td> 
@@ -322,8 +347,27 @@
      <span class="label label-danger">No connected views</span>
      <ul class="list-group"> </ul>
    </td> 
+   <td> 
+     <span class="label label-success">No connected presenters</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     
+     <span class="label label-danger">Presenter is missing link with view</span>
+     <span class="label label-danger">Presenter is missing link with model</span>
+     
+     
+   </td> 
   </tr>
+  
+  
+  
+  
 
+  
+  
+  
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">BeerAdapter</li></ul> </td>
    <td> 
@@ -336,8 +380,27 @@
 	<li class="list-group-item">SingleImageActivity</li>
  </ul>
    </td> 
+   <td> 
+     <span class="label label-success">No connected presenters</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     
+     
+     <span class="label label-danger">Presenter is missing link with model</span>
+     
+     
+   </td> 
   </tr>
+  
+  
+  
+  
 
+  
+  
+  
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">EventListAdapter</li></ul> </td>
    <td> 
@@ -348,496 +411,19 @@
      <span class="label label-danger">No connected views</span>
      <ul class="list-group"> </ul>
    </td> 
-  </tr>
-
-    </tbody>
-  </table>
-  <ul>
-  
-  </ul>
-
-					  
-					  <h2>Analysis per Model</h2>
-					  
-  <p>
-  It is expected that if a model is not connected to a presenter, that the model is connected to one or more views. 
-  This is called the Model-View pattern and is the simplified pattern that is allowed in Android.  So the model is 
-  either connected to one presenter, or the model is connected to views directly. If a model is connected to a presenter,
-  it is not allowed for the model to also be connected to views. Models should never be connected to other models. 
-  <p>
-  
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Model</th>
-        <th>Presenter</th>
-        <th>Views</th>
-        <th>Models</th>
-        <th>Conclusion</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Drawable</li></ul> </td>
    <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
+     <span class="label label-success">No connected presenters</span>
      <ul class="list-group"> </ul>
    </td> 
    <td> 
      
+     <span class="label label-danger">Presenter is missing link with view</span>
+     <span class="label label-danger">Presenter is missing link with model</span>
      
      
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
    </td> 
   </tr>
   
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Beer</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">PreferenceManager</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">PackageManager</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Animation</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">News</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">RingtoneManager</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Resources</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">PendingIntent</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Quote</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Review</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Meeting</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">User</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Calendar</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Sticker</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
-  
-  
-  
-
-  
-  
-  
-  <tr>
-   <td><ul class="list-group"> <li class="list-group-item">Event</li></ul> </td>
-   <td> 
-     <span class="label label-warning">No connected presenters found</span>
-     <ul class="list-group"></ul> 
-   </td> 
-   <td> 
-     <span class="label label-warning">No connected views found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     <span class="label label-success">No connected models found</span>
-     <ul class="list-group"> </ul>
-   </td> 
-   <td> 
-     
-     
-     
-     <span class="label label-danger">Model not connected to any views or presenters</span>
-     <span class="label label-success">Model not connected to other models</span>
-   </td> 
-  </tr>
   
   
   
@@ -872,7 +458,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">DatePickerFragment</li></ul> </td>
    <td> 
@@ -904,7 +490,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">StickerFragment</li></ul> </td>
    <td> 
@@ -923,7 +509,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -934,7 +520,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">QuoteFragment</li></ul> </td>
    <td> 
@@ -953,7 +539,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -964,7 +550,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">AboutFragment</li></ul> </td>
    <td> 
@@ -983,7 +569,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -994,7 +580,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">SingleEventActivity</li></ul> </td>
    <td> 
@@ -1026,7 +612,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">UserFragmentPagerAdapter</li></ul> </td>
    <td> 
@@ -1045,7 +631,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1056,7 +642,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">SettingsFragment</li></ul> </td>
    <td> 
@@ -1075,7 +661,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1086,7 +672,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewMeetingActivity</li></ul> </td>
    <td> 
@@ -1122,7 +708,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewEventActivity</li></ul> </td>
    <td> 
@@ -1156,7 +742,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewNewsActivity</li></ul> </td>
    <td> 
@@ -1175,7 +761,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1186,7 +772,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewBeerActivity</li></ul> </td>
    <td> 
@@ -1218,7 +804,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">TimePickerFragment</li></ul> </td>
    <td> 
@@ -1250,7 +836,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">EventListFragment</li></ul> </td>
    <td> 
@@ -1269,7 +855,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1280,7 +866,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">UserListFragment</li></ul> </td>
    <td> 
@@ -1301,7 +887,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1312,7 +898,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">SingleImageActivity</li></ul> </td>
    <td> 
@@ -1344,7 +930,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">MainActivity</li></ul> </td>
    <td> 
@@ -1390,7 +976,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">Activity</li></ul> </td>
    <td> 
@@ -1409,7 +995,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1420,7 +1006,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">MeetingFragment</li></ul> </td>
    <td> 
@@ -1439,7 +1025,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1450,7 +1036,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">UserFragment</li></ul> </td>
    <td> 
@@ -1471,7 +1057,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1482,7 +1068,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">HamersFragment</li></ul> </td>
    <td> 
@@ -1501,7 +1087,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1512,7 +1098,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">EventFragmentPagerAdapter</li></ul> </td>
    <td> 
@@ -1531,7 +1117,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1542,7 +1128,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewItemActivity</li></ul> </td>
    <td> 
@@ -1574,7 +1160,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">SingleUserActivity</li></ul> </td>
    <td> 
@@ -1606,7 +1192,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewReviewActivity</li></ul> </td>
    <td> 
@@ -1640,7 +1226,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewQuoteFragment</li></ul> </td>
    <td> 
@@ -1672,7 +1258,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">EventFragment</li></ul> </td>
    <td> 
@@ -1693,7 +1279,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1704,7 +1290,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">SingleMeetingActivity</li></ul> </td>
    <td> 
@@ -1740,7 +1326,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">BeerFragment</li></ul> </td>
    <td> 
@@ -1759,7 +1345,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1770,7 +1356,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">HamersActivity</li></ul> </td>
    <td> 
@@ -1789,7 +1375,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1800,7 +1386,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">NewsFragment</li></ul> </td>
    <td> 
@@ -1819,7 +1405,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1830,7 +1416,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">MeetingAdapter</li></ul> </td>
    <td> 
@@ -1851,7 +1437,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1862,7 +1448,7 @@
   
   
   
-   
+  
   <tr>
    <td><ul class="list-group"> <li class="list-group-item">SingleBeerActivity</li></ul> </td>
    <td> 
@@ -1881,7 +1467,7 @@
      
      
      
-     <span class="label label-warning">Unable to determine pattern, vieuw might be used in presenters</span>
+     <span class="label label-warning">Unable to determine pattern, view might be used in presenters</span>
    </td> 
   </tr>
   
@@ -1895,6 +1481,432 @@
   
   </ul>
 
+					  
+					  <h2>Analysis per Model</h2>
+					  
+  <p>
+  Models are standalone, and should not be connected to any views or presenters. Presenter or views can ofcourse have links to models.
+  <p>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Presenter</th>
+        <th>Views</th>
+        <th>Models</th>
+        <th>Conclusion</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Drawable</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Beer</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">PreferenceManager</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">PackageManager</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Animation</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">News</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">RingtoneManager</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Resources</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">PendingIntent</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Quote</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Review</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Meeting</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">User</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Calendar</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Sticker</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+  
+  
+  
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">Event</li></ul> </td>
+   <td> 
+     <span class="label label-success">No connected presenters found</span>
+     <ul class="list-group"></ul> 
+   </td> 
+   <td> 
+     <span class="label label-success">No connected views found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">No connected models found</span>
+     <ul class="list-group"> </ul>
+   </td> 
+   <td> 
+     <span class="label label-success">Model does not have connections to models, views and presenters</span>
+   </td> 
+  </tr>
+  
+  
+  
+
+    </tbody>
+  </table>
+  <ul>
+  
+  </ul>
+
+					  
 			    </div>
 			  </div>
 		  </div>
