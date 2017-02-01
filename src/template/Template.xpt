@@ -46,6 +46,9 @@
 					  
 					  <h2>Analysis per Model</h2>
 					  «EXPAND analyseModels FOR this»
+					  
+					  <h2>Analysis per View</h2>
+            «EXPAND analyseViews FOR this»
 			    </div>
 			  </div>
 		  </div>
@@ -148,7 +151,7 @@
 
 «DEFINE analyseOnePresenter FOR Presenter»
   <tr>
-   <td> «name» </td>
+   <td><ul class="list-group"> <li class="list-group-item">«name»</li></ul> </td>
    <td> 
      «this.connectedClass.exists(e|e.metaType == Model) ? "" : "<span class=\"label label-danger\">No connected models</span>"»
      <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» </ul>
@@ -161,7 +164,7 @@
 «ENDDEFINE»
 
 //#########################################################################################
-//h2 - analysis of models
+//h3 - analysis of models
 //#########################################################################################
 
 «DEFINE analyseModels FOR Root»
@@ -196,17 +199,17 @@
   «LET this.connectedClass.exists(e|e.metaType == View) AS hasView»
   «LET this.connectedClass.exists(e|e.metaType == Model) AS hasModel»
   <tr>
-   <td> «name» </td>
+   <td><ul class="list-group"> <li class="list-group-item">«name»</li></ul> </td>
    <td> 
-     «hasPresenter ? "" : "<span class=\"label label-warning\">No presenters found for model</span>" »
-     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)»</ul> 
+     «hasPresenter ? "" : "<span class=\"label label-warning\">No connected presenters found</span>" »
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Presenter)»</ul> 
    </td> 
    <td> 
-     «hasView ? "" : "<span class=\"label label-warning\">Model not connected to any views</span>"»
+     «hasView ? "" : "<span class=\"label label-warning\">No connected views found</span>"»
      <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(View)» </ul>
    </td> 
    <td> 
-     «hasModel ? "" : "<span class=\"label label-success\">Model not connected to other models</span>"»
+     «hasModel ? "" : "<span class=\"label label-success\">No connected models found</span>"»
      <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» </ul>
    </td> 
    <td> 
@@ -217,6 +220,68 @@
      «hasModel ? "<span class=\"label label-danger\">Model connected to other models</span>" : "<span class=\"label label-success\">Model not connected to other models</span>"»
    </td> 
   </tr>
+  «ENDLET»
+  «ENDLET»
+  «ENDLET»
+«ENDDEFINE»
+
+//#########################################################################################
+//h4 - analysis of views
+//#########################################################################################
+
+«DEFINE analyseViews FOR Root»
+  <p>
+  Views can have links to models and other views, but should not have any links to presenters. (Presenters have links to views) 
+  In a best case scenario, a view has a link to a single model and possibly one or more views. Links to multiple models should 
+  not be allowed. 
+  <p>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>View</th>
+        <th>Presenter</th>
+        <th>Views</th>
+        <th>Models</th>
+        <th>Detected pattern</th>
+      </tr>
+    </thead>
+    <tbody>
+      «EXPAND analyseOneView FOREACH this.eAllContents.typeSelect(View)»
+    </tbody>
+  </table>
+  <ul>
+  
+  </ul>
+«ENDDEFINE»
+
+«DEFINE analyseOneView FOR View»
+  «LET this.connectedClass.exists(e|e.metaType == Presenter) AS hasPresenter»
+  «LET this.connectedClass.exists(e|e.metaType == View) AS hasView»
+  «LET this.connectedClass.exists(e|e.metaType == Model) AS hasModel»
+   «LET (this.connectedClass.select(e|e.metaType == Model)).size AS modelAmount»
+  <tr>
+   <td><ul class="list-group"> <li class="list-group-item">«name»</li></ul> </td>
+   <td> 
+     «hasPresenter ? "" : "<span class=\"label label-success\">No connected presenters found</span>" »
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Presenter)»</ul> 
+   </td> 
+   <td> 
+     «hasView ? "" : "<span class=\"label label-warning\">No connected views found</span>"»
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(View)» </ul>
+   </td> 
+   <td> 
+     «hasModel ? "" : "<span class=\"label label-warning\">No connected models found</span>"»
+     <ul class="list-group">«EXPAND listClass FOREACH this.connectedClass.typeSelect(Model)» </ul>
+   </td> 
+   <td>
+     «hasPresenter ? "<span class=\"label label-danger\">A view has a presenter connection</span>" : ""»
+     «hasModel && !hasPresenter? "<span class=\"label label-success\">Model/view pattern detected</span>" : ""»
+     «hasModel && modelAmount > 1? "<span class=\"label label-danger\">View has multiple models</span>" : ""»
+     «!hasModel && !hasPresenter ? "<span class=\"label label-warning\">Unable to determine pattern, vieuw might be used in presenters</span>" : ""»
+   </td> 
+  </tr>
+  «ENDLET»
   «ENDLET»
   «ENDLET»
   «ENDLET»
